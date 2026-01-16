@@ -1,11 +1,12 @@
- campusHub
-
-A web application built with Node.js and Express that handles user signup and login functionality.
-
+#campusHub
+A web application built to aid students in their academic endevaours
 
  Features
 -User registration (signup)
  User authentication (login)
+ event and annoucement page
+ timetable generator
+ library and resource management
  Backend built with Express.js
  Frontend with HTML, CSS, and JavaScript
  Ready for future expansion (dashboard, file upload, etc.)
@@ -17,6 +18,4 @@ Express.js
  CSS
  JavaScript
 
-
  Clone this repository:
-
