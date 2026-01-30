@@ -31,7 +31,7 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-const auth = require("./middleware/authMiddleware");
+const auth = require("./middleware/authmiddleware");
 
 app.get("/api/dashboard", auth, (req, res) => {
   res.json({
