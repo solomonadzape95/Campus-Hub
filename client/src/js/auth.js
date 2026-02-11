@@ -7,8 +7,27 @@ if (signupForm) {
   signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const email = document.getElementById("signupEmail").value;
+    const name = document.getElementById("fullName").value.trim();
+    const email = document.getElementById("signupEmail").value.trim();
+    const studentId = document.getElementById("studentId").value.trim();
     const password = document.getElementById("signupPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    // Client-side validation
+    if (!name || !email || !studentId || !password || !confirmPassword) {
+      alert("All fields are required");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters");
+      return;
+    }
 
     try {
       const res = await fetch(`${API_URL}/signup`, {
@@ -16,7 +35,7 @@ if (signupForm) {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ name, email, studentId, password })
       });
 
       const data = await res.json();
